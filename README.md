@@ -39,6 +39,22 @@ Alternatively, if this is encountered only on the test and/or development databa
 3. Apply the edited migration with  
 `rake db:migrate RAILS_ENV=insert_the_environment_here`
 
+
+# Testing
+
+## RSpec + DatabaseCleaner
+
+### Ensure `spec/support` directory is correctly configured
+
+When configuring DatabaseCleaner to clear out the test database between specs, it is common to put the DatabaseCleaner configuration into its own file in the `spec/support` directory.
+
+If the database isn't being cleared out between specs, it may be because the files in the `spec/support` directory are not being required by RSpec. Check that the following line is not commented out in `spec/rails_helper.rb`:
+
+```
+# Line below must not be commented out to ensure support files are required by RSpec
+Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+```
+
 ---
 
 # Contributors
