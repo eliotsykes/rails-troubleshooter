@@ -28,13 +28,16 @@ Alternatively, if this is encountered only on the test and/or development databa
 
 1. Undo the edits made to the original migration file and save it
 2. Create a new migration file with the required database changes
-3. Apply the new database migration with `rake db:migrate RAILS_ENV=insert_the_environment_here`
+3. Apply the new database migration with  
+`rake db:migrate RAILS_ENV=insert_the_environment_here`
 
 **OR**
 
-1. Rollback the migration on the database(s) with `rake db:rollback STEP=1 RAILS_ENV=insert_the_environment_here`
+1. Rollback the migration on the database(s) with  
+`rake db:rollback STEP=1 RAILS_ENV=insert_the_environment_here`
 2. Edit the original migration file to contain the required changes and save it
-3. Apply the edited migration with  `rake db:migrate RAILS_ENV=insert_the_environment_here`
+3. Apply the edited migration with  
+`rake db:migrate RAILS_ENV=insert_the_environment_here`
 
 ---
 
