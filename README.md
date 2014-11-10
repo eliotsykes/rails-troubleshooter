@@ -2,6 +2,20 @@
 
 Troubleshoot common Ruby on Rails issues
 
+<!-- MarkdownTOC depth=0 autolink=true bracket=round -->
+
+- [Database](#database)
+  - [Migrations](#migrations)
+    - [Ensure test db is migrated](#ensure-test-db-is-migrated)
+    - [Applying a migration then editing it](#applying-a-migration-then-editing-it)
+- [Testing](#testing)
+  - [RSpec + DatabaseCleaner](#rspec--databasecleaner)
+    - [Ensure `spec/support` directory is correctly configured](#ensure-specsupport-directory-is-correctly-configured)
+- [Contributors](#contributors)
+
+<!-- /MarkdownTOC -->
+
+
 # Database
 
 ## Migrations
