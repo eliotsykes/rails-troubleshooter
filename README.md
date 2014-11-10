@@ -38,6 +38,9 @@ Alternatively, if this is encountered only on the test and/or development databa
 
 ---
 
-# WORK IN PROGRESS
+# Contributors
 
 Suggestions for common Rails issues to add to this README welcome in the issue tracker or as pull requests.
+
+- Eliot Sykes https://eliotsykes.com/
+- Your name here, contributions welcome!
