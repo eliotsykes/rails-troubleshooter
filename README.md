@@ -1,4 +1,39 @@
-rails-troubleshooter
-====================
+# rails-troubleshooter
 
 Troubleshoot common Ruby on Rails issues
+
+# Database
+
+## Migrations
+
+Migrations in Rails live in the `db/migrations` folder. They need to be applied to each database environment your app has. Usually the 3 environments are development, test, and production.
+
+A common problem is migrations have been run on the development database by calling `rake db:migrate`. Depending on the Rails version, this may mean the migrations have **not** been applied to the test database.
+
+To ensure your migrations are applied to the test database, run this command:
+
+```
+rake db:migrate RAILS_ENV=test
+```
+
+Once a migration file has been run against a database, and **after** running it, the migration file is edited to change the work the migration does, then running `rake db:migrate` again will **not** apply those changes to the database. This is correct behaviour.
+
+If you've encountered this on a production database with important data that cannot be lost, ask for help from an experienced developer if you're unsure how to handle this.
+
+Alternatively, if this is encountered only on the test and/or development database, the 2 most common ways to fix this are:
+
+1. Undo the edits made to the original migration file and save it
+2. Create a new migration file with the required database changes
+3. Apply the new database migration with `rake db:migrate RAILS_ENV=insert_the_environment_here`
+
+**OR**
+
+1. Rollback the migration on the database(s) with `rake db:rollback STEP=1 RAILS_ENV=insert_the_environment_here`
+2. Edit the original migration file to contain the required changes and save it
+3. Apply the edited migration with  `rake db:migrate RAILS_ENV=insert_the_environment_here`
+
+---
+
+# WORK IN PROGRESS
+
+Suggestions for common Rails issues to add to this README welcome in the issue tracker or as pull requests.
