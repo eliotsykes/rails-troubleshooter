@@ -4,6 +4,8 @@ Troubleshoot common Ruby on Rails issues
 
 <!-- MarkdownTOC depth=0 autolink=true bracket=round -->
 
+- [Errors](#errors)
+  - ["Missing host to link to!"](#missing-host-to-link-to)
 - [Database](#database)
   - [Migrations](#migrations)
     - [Ensure test db is migrated](#ensure-test-db-is-migrated)
@@ -15,6 +17,24 @@ Troubleshoot common Ruby on Rails issues
 
 <!-- /MarkdownTOC -->
 
+# Errors
+
+## "Missing host to link to!"
+
+For error:
+```
+ActionView::Template::Error (Missing host to link to! Please provide the :host parameter, set default_url_options[:host], or set :only_path to true)
+```
+
+This error means that the appliation is unable to build the full URL, including the host, for a link its generating (usually when trying to generate a link in an email).
+
+Open the relevant environment configuration file in `config/environments/`. If you're seeing this error in production, open `config/environments/production.rb`.
+
+There should be a setting that sets the `host` in `default_url_options` to the correct value for this environment. For example, if the environment is production, and the production app is hosted on heroku at host `your-heroku-app-name.herokuapp.com`, then the setting will look like this:
+
+```
+  config.action_mailer.default_url_options = { host: 'your-heroku-app-name.herokuapp.com' }
+```
 
 # Database
 
@@ -32,7 +52,7 @@ To ensure your migrations are applied to the test database, run this command:
 rake db:migrate RAILS_ENV=test
 ```
 
-### Applying a migration then editing it 
+### Applying a migration then editing it
 
 Once a migration file has been run against a database, and **after** running it, if the migration file is **then** edited to change the work the migration does, then running `rake db:migrate` again will **not** apply those changes to the database. This is correct behaviour.
 
