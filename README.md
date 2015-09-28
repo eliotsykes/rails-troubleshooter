@@ -23,7 +23,9 @@ Troubleshoot common Ruby on Rails issues
 
 For error:
 ```
-ActionView::Template::Error (Missing host to link to! Please provide the :host parameter, set default_url_options[:host], or set :only_path to true)
+ActionView::Template::Error
+(Missing host to link to! Please provide the :host parameter, set
+default_url_options[:host], or set :only_path to true)
 ```
 
 This error means that the appliation is unable to build the full URL, including the host, for a link its generating (usually when trying to generate a link in an email).
