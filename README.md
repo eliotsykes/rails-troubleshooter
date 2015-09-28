@@ -28,9 +28,9 @@ ActionView::Template::Error
 default_url_options[:host], or set :only_path to true)
 ```
 
-This error means that the appliation is unable to build the full URL, including the host, for a link its generating (usually when trying to generate a link in an email).
+This error means the app is unable to build the full URL, including the host, for a link its generating (usually when trying to generate a link in an email).
 
-Open the relevant environment configuration file in `config/environments/`. If you're seeing this error in production, open `config/environments/production.rb`.
+Open the relevant environment configuration file in `config/environments/`, for example, if you're seeing this error in production, open `config/environments/production.rb`.
 
 There should be a setting that sets the `host` in `default_url_options` to the correct value for this environment. For example, if the environment is production, and the production app is hosted on heroku at host `your-heroku-app-name.herokuapp.com`, then the setting will look like this:
 
